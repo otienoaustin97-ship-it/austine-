@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Gleam Cleaning Solutions</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand"><img src="assets/Blue_and_White_Simple_Cleaning_Services_Logo.png" alt="Logo" /><div><h1>GLEAM</h1></div></div>
+    <nav><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></nav>
+    <div class="nav-cta"><a data-tel class="btn">📞 Call</a><a data-wa class="btn secondary">💬 WhatsApp</a></div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h3 id="book">Contact & Bookings</h3>
+      <p class="muted">Fill the booking or quote form below. For instant responses use WhatsApp or call.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 420px;gap:18px;margin-top:12px">
+        <div>
+          <form id="bookingForm">
+            <h4>Book a Service</h4>
+            <div class="split">
+              <div><label for="cName">Full name</label><input id="cName" name="name" type="text" required/></div>
+              <div><label for="cPhone">Phone</label><input id="cPhone" name="phone" type="tel" required/></div>
+            </div>
+            <label for="cEmail">Email (optional)</label>
+            <input id="cEmail" name="email" type="email" placeholder="you@example.com" />
+            <label for="cService">Service</label>
+            <select id="cService" name="service" required>
+              <option value="">Select service</option>
+              <option>Deep Cleaning</option><option>Upholstery & Sofa Cleaning</option><option>Mattress Cleaning</option><option>Floor & Carpet Cleaning</option><option>Window Cleaning</option><option>Car Detailing</option><option>Pressure Washing</option><option>Post-Construction Cleaning</option><option>Fumigation & Pest Control</option><option>Rubbish Collection & Disposal</option><option>Event Cleaning</option><option>Office Maintenance</option>
+            </select>
+            <label for="cDate">Preferred date</label>
+            <input id="cDate" name="date" type="text" placeholder="2025-12-01 or ASAP" />
+            <label for="cAddress">Location / Address</label>
+            <input id="cAddress" name="address" type="text" placeholder="Richmond House, Mfangano Street" required />
+            <label for="cNotes">Additional notes</label>
+            <textarea id="cNotes" name="notes" rows="3"></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+              <button type="submit" class="btn">Submit Booking</button>
+              <button type="button" class="btn secondary" onclick="openQuoteModal()">Request a Quote</button>
+              <button type="button" class="btn secondary" onclick="window.open('https://wa.me/254704927950?text=Hi%20Gleam%20Cleaning%20Solutions%2C%20I%20would%20like%20to%20book%20a%20service', '_blank')">WhatsApp</button>
+            </div>
+          </form>
+        </div>
+
+        <aside style="background:linear-gradient(180deg,#fff,#f6fbff);padding:14px;border-radius:10px;">
+          <h4>Quick Contact</h4>
+          <p class="muted"><strong>Phone:</strong> <a data-tel>+254 704 927 950</a><br /><strong>Email:</strong> gleamcleaningsolutionske@gmail.com</p>
+          <div style="margin-top:12px">
+            <h5 style="margin:0 0 6px">Map</h5>
+            <a href="https://www.google.com/maps/search/Richmond+House+Mfangano+Street+Nairobi" target="_blank">Open in Google Maps</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h3 id="quote">Request a Quote</h3>
+      <p class="muted">Prefer a quick estimate? Use the Quote button to send details to our WhatsApp or email.</p>
+      <div style="margin-top:8px">
+        <button class="btn" onclick="openQuoteModal()">Quick Quote</button>
+      </div>
+    </section>
+
+    <section class="section container" id="admin">
+      <h3>Bookings (Local)</h3>
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+        <button class="btn" onclick="downloadBookingsCSV()">Export CSV</button>
+        <button class="btn secondary" onclick="populateSample()">Add Sample Booking</button>
+        <button class="btn secondary" onclick="clearBookings()">Clear Local Bookings</button>
+      </div>
+      <div class="admin-box" id="bookingsList" style="overflow:auto;max-height:320px"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="small">Gleam Cleaning Solutions — Richmond House, Mfangano Street, Nairobi</p>
+    </div>
+  </footer>
+
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modalContent" role="document"></div>
+  </div>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
